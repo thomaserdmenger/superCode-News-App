@@ -11,7 +11,62 @@
     <title>News App</title>
   </head>
   <body>
-    <div class="wrapper"></div>
+    <div class="wrapper">
+      <h1>News App</h1>
+      <form>
+        <div class="search">
+          <label for="search-term">Search Term</label>
+          <input
+            type="text"
+            name="search-term"
+            id="search-term"
+            placeholder="Search Term" />
+        </div>
+        <div class="language">
+          <label for="language">Language</label>
+          <select
+            name="language"
+            id="language">
+            <option value="ar">Arabic</option>
+            <option value="de">German</option>
+            <option
+              value="en"
+              selected>
+              English
+            </option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="he">Hebrew</option>
+            <option value="it">Italian</option>
+            <option value="nl">Dutch</option>
+            <option value="no">Norwegian</option>
+            <option value="pt">Portuguese</option>
+            <option value="ru">Russian</option>
+            <option value="sv">Swedish</option>
+            <option value="ud">Urdu</option>
+            <option value="zh">Chinese (Mandarin)</option>
+          </select>
+        </div>
+        <div>
+          <label for="sort">Sort by</label>
+          <select
+            name="sort"
+            id="sort">
+            <option
+              value="relevancy"
+              selected>
+              Relevancy
+            </option>
+            <option value="popularity">Popularity</option>
+            <option value="publishedAt">Newest first</option>
+          </select>
+        </div>
+        <input
+          type="submit"
+          value="Search" />
+      </form>
+      <section class="grid-container"></section>
+    </div>
     <script
       type="module"
       src="./assets/js/app.js"></script>

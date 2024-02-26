@@ -21,4 +21,46 @@ img {
 
 .wrapper {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 10%;
+  padding-block-start: 2rem;
+}
+
+h1 {
+  margin-block-end: 2rem;
+}
+
+/* ! Form */
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 1rem;
+  margin-block-end: 4rem;
+}
+
+form div {
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+form div input,
+form div select {
+  width: 60%;
+  padding: 0.5rem;
+}
+
+select {
+  display: flex;
+  flex-direction: column;
+  appearance: none; /* Verhindert Standard-System-Stile */
+}
+
+input[type='submit'] {
+  padding: 0.5rem;
 }
