@@ -17,7 +17,6 @@
 
 ## Links
 
-- [See live site here](https://thomaserdmenger.github.io/superCode-News-App)
 - [GitHub Repository](https://github.com/thomaserdmenger/superCode-News-App)
 - [GitHub Author](https://github.com/thomaserdmenger)
 - [LinkedIn Author](https://www.linkedin.com/in/thomaserdmenger/)
