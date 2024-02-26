@@ -1,5 +1,6 @@
 // DOM Elements
 const formEl = document.querySelector('form')
+const gridContainer = document.querySelector('.grid-container')
 const ApiKey = '49f5a6d6a8af43c1aa6a7df4ecc71b53'
 
 // Fetch News
@@ -12,8 +13,6 @@ const fetchNews = (e) => {
   const sortVal = document.querySelector('#sort').value
 
   //   Error Handling if there is no User Input
-  const seachPlaceholder = document.querySelector('#search-term').placeholder
-
   if (userInputVal === '') {
     document.querySelector('#search-term').placeholder = 'Search term not found'
     return
@@ -21,7 +20,7 @@ const fetchNews = (e) => {
 
   // Fetch News
   fetch(
-    `https://newsapi.org/v2/everything?q=${userInputVal}&language=${languageVal}&sortBy=${sortVal}&apiKey=${ApiKey}`
+    `https://newsapi.org/v2/everything?q=${userInputVal}&language=${languageVal}&sortBy=${sortVal}&apiKey=${ApiKey}&pageSize=10`
   )
     .then((res) => res.json())
     .then((news) => {
@@ -32,16 +31,54 @@ const fetchNews = (e) => {
 
 // Render News to Screen
 const renderNews = (news) => {
+  const template = news.articles
+
+    .map((newArticle) => {
+      const {
+        title,
+        author,
+        description,
+        urlToImage,
+        content,
+        url,
+        publishedAt
+      } = newArticle
+
+      // Transform Date
+      const newsDate = new Date(publishedAt)
+      const newsDay = newsDate.getDate()
+      const newMonth = newsDate.getMonth()
+      const newsYear = newsDate.getFullYear()
+      const renderDate = `${newsDay < 10 ? `0${newsDay}` : newsDay}.${
+        newMonth < 10 ? `0${newMonth}` : newMonth
+      }.${newsYear}`
+
+      // Return Template
+      return `
+    <article>
+        <h2>${title}</h2>
+        <p>${author ? author : ''}</p>
+        <p>${renderDate ? renderDate : 'Hello'}</p>
+        <h3>${description ? description : ''}</h3>
+        <img src="${urlToImage ? urlToImage : ''}" alt="${title}">
+        <p>${content}</p>
+        <a href="${url}" target="_blank">Get more Information</a>
+    </article>
+    `
+    })
+    .join('')
+
+  // Render innerHTML
+  gridContainer.innerHTML = template
+}
+
+// Error Handling if there is no News for Users Input
+const errorHandling = (news) => {
   if (news.articles.length === 0) {
     document.querySelector('#search-term').value = ''
     document.querySelector('#search-term').placeholder = 'Search term not found'
     return
   }
-}
-
-// Error Handling
-const errorHandling = (news) => {
-  console.log(news)
 }
 
 // Event Listeners

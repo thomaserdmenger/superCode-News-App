@@ -33,7 +33,6 @@ h1 {
 }
 
 /* ! Form */
-
 form {
   display: flex;
   flex-direction: column;
@@ -63,4 +62,16 @@ select {
 
 input[type='submit'] {
   padding: 0.5rem;
+}
+
+/* ! News Section */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.grid-container article {
+  display: flex;
+  flex-direction: column;
 }
