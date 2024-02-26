@@ -27,6 +27,7 @@ const fetchNews = (e) => {
       renderNews(news)
       errorHandling(news)
     })
+    .catch((err) => console.log(err))
 }
 
 // Render News to Screen

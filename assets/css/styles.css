@@ -26,6 +26,8 @@ img {
   align-items: center;
   padding-inline: 5%;
   padding-block-start: 2rem;
+  max-width: 430px;
+  margin-inline: auto;
 }
 
 h1 {
