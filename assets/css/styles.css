@@ -1,0 +1,24 @@
+/* ! Imports */
+@font-face {
+  font-family: Inter;
+  src: url(../fonts/Inter.ttf);
+}
+
+/* ! Basic Styles */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-family: Inter;
+}
+
+img {
+  max-width: 100%;
+}
+
+.wrapper {
+  min-height: 100vh;
+}
