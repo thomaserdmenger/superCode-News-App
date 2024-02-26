@@ -57,8 +57,10 @@ const renderNews = (news) => {
       return `
     <article>
         <h2>${title}</h2>
-        <p>${author ? author : ''}</p>
-        <p>${renderDate ? renderDate : 'Hello'}</p>
+        <div class="author-date">
+            <p>${author ? author : ''}</p>
+            <p>${renderDate ? renderDate : 'Hello'}</p>
+        </div>
         <h3>${description ? description : ''}</h3>
         <img src="${urlToImage ? urlToImage : ''}" alt="${title}">
         <p>${content}</p>
