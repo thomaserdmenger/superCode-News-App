@@ -11,12 +11,37 @@ const fetchNews = (e) => {
   const languageVal = document.querySelector('#language').value
   const sortVal = document.querySelector('#sort').value
 
-  // Fetch Data
+  //   Error Handling if there is no User Input
+  const seachPlaceholder = document.querySelector('#search-term').placeholder
+
+  if (userInputVal === '') {
+    document.querySelector('#search-term').placeholder = 'Search term not found'
+    return
+  }
+
+  // Fetch News
   fetch(
     `https://newsapi.org/v2/everything?q=${userInputVal}&language=${languageVal}&sortBy=${sortVal}&apiKey=${ApiKey}`
   )
     .then((res) => res.json())
-    .then((news) => console.log(news))
+    .then((news) => {
+      renderNews(news)
+      errorHandling(news)
+    })
+}
+
+// Render News to Screen
+const renderNews = (news) => {
+  if (news.articles.length === 0) {
+    document.querySelector('#search-term').value = ''
+    document.querySelector('#search-term').placeholder = 'Search term not found'
+    return
+  }
+}
+
+// Error Handling
+const errorHandling = (news) => {
+  console.log(news)
 }
 
 // Event Listeners
